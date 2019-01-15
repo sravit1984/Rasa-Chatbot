@@ -1,0 +1,105 @@
+action_factory: null
+action_names:
+- utter_greet
+- utter_goodbye
+- utter_default
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_cuisine
+- utter_ask_price_range
+- utter_ask_should_email
+- utter_ask_email_id
+- utter_confirm_email_sent
+- action_restaurant
+- action_email
+actions:
+- utter_greet
+- utter_goodbye
+- utter_default
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_cuisine
+- utter_ask_price_range
+- utter_ask_should_email
+- utter_ask_email_id
+- utter_confirm_email_sent
+- actions.ActionSearchRestaurants
+- actions.ActionSendEmail
+config:
+  store_entities_as_slots: true
+entities:
+- location
+- cuisine
+- price_range
+- email_id
+- email_message
+intents:
+- greet
+- affirm
+- deny
+- goodbye
+- thankyou
+- restaurant_search
+- send_email
+slots:
+  cuisine:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  email_id:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  email_message:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  location:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  price_range:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+templates:
+  utter_ask_cuisine:
+  - buttons:
+    - payload: Chinese
+      title: Chinese
+    - payload: Mexican
+      title: Mexican
+    - payload: Italian
+      title: Italian
+    - payload: American
+      title: American
+    - payload: South Indian
+      title: South Indian
+    - payload: North Indian
+      title: North Indian
+    text: what kind of cuisine would you like?
+  utter_ask_email_id:
+  - text: To what email id should I send it to?
+  utter_ask_howcanhelp:
+  - text: how can I help you?
+  utter_ask_location:
+  - text: In what location?
+  utter_ask_price_range:
+  - buttons:
+    - payload: Lesser than Rs. 300
+      title: Lesser than Rs. 300
+    - payload: Rs. 300 to 700
+      title: Rs. 300 to 700
+    - payload: More than 700
+      title: More than 700
+    text: What's the average budget for two you are looking for?
+  utter_ask_should_email:
+  - text: Should I send you details of all the restaurants on email?
+  utter_confirm_email_sent:
+  - text: Sent, have a good day!
+  - text: Sent, Bon Appetit!
+  - text: Sent, enjoy your meal!
+  utter_default:
+  - text: default message
+  utter_goodbye:
+  - text: goodbye :(
+  - text: Bye-bye
+  utter_greet:
+  - text: hey there! How may i help you
+  - text: Hi, How can I help you!
+  - text: Hey, How is it going. How May I help you Today
